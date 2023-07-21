@@ -6,6 +6,7 @@
 package techQuizApp.GUI;
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -34,22 +35,23 @@ public class TakeTestFrame extends javax.swing.JFrame {
     private ExamPOJO newExam;
     int qno;
     int pos;
+
     public TakeTestFrame() {
         initComponents();
         setLocationRelativeTo(null);
-        lblShowName.setText("Hello "+ UserProfilePOJO.getUserName());
+        lblShowName.setText("Hello " + UserProfilePOJO.getUserName());
         oldColor = lblLogout.getForeground();
         qStore = new QuestionStore();
         ansStore = new AnswerStore();
     }
-    public TakeTestFrame(ExamPOJO exam)
-    {
+
+    public TakeTestFrame(ExamPOJO exam) {
         this();
         newExam = exam;
         qno = 1;
         pos = 0;
-        lblShowQuestionNo.setText("Question No. "+qno);
-        lblShowExamName.setText(newExam.getLanguage().toUpperCase()+" PAPER");
+        lblShowQuestionNo.setText("Question No. " + qno);
+        lblShowExamName.setText(newExam.getLanguage().toUpperCase() + " PAPER");
         loadQuestions();
         showQuestion();
     }
@@ -75,6 +77,7 @@ public class TakeTestFrame extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnDone = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jcOption1 = new javax.swing.JRadioButton();
         jcOption2 = new javax.swing.JRadioButton();
         jcOption3 = new javax.swing.JRadioButton();
@@ -160,6 +163,10 @@ public class TakeTestFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon("H:\\HSEKAR\\JAVA_PROJECT_LECTURE_NOTES\\appimages\\onlineexam\\good luck2.jpg")); // NOI18N
+
         jcOption1.setBackground(new java.awt.Color(0, 0, 0));
         buttonGroup1.add(jcOption1);
         jcOption1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -190,40 +197,40 @@ public class TakeTestFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblShowExamName)
+                .addGap(277, 277, 277)
                 .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(lblShowQuestionNo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcOption1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addComponent(jcOption3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcOption2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcOption4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblShowQuestionNo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jcOption1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jcOption3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jcOption2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jcOption4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addComponent(lblShowExamName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel2))
+                    .addComponent(lblShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,14 +238,17 @@ public class TakeTestFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addComponent(lblShowExamName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(lblShowQuestionNo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblShowExamName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblShowQuestionNo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcOption1)
                     .addComponent(jcOption2))
@@ -246,13 +256,13 @@ public class TakeTestFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcOption3)
                     .addComponent(jcOption4))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -285,75 +295,61 @@ public class TakeTestFrame extends javax.swing.JFrame {
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         String choosenAnswer = getUserAnswer();
-        if(choosenAnswer != null)
-        {
+        if (choosenAnswer != null) {
             QuestionPOJO ques = qStore.getQuestionByQno(qno);
             String correctAnswer = ques.getCorrectAnswer();
             AnswerPOJO ans = new AnswerPOJO(newExam.getExamID(), newExam.getLanguage(), qno, choosenAnswer, correctAnswer);
             AnswerPOJO attemped = ansStore.getAnswerByQno(qno);
-            if(attemped == null)
-            {
+            if (attemped == null) {
                 ansStore.addAnswer(ans);
-            }
-            else
-            {
+            } else {
                 String preAnswer = attemped.getChoosenAnswer();
-                if(preAnswer.equals(choosenAnswer))
-                {
+                if (preAnswer.equals(choosenAnswer)) {
                     int apos = ansStore.removeAnswer(attemped);
                     ansStore.setAnswerAt(apos, ans);
                 }
             }
         }
         pos--;
-        if(pos < 0)
-        {
-            pos = qStore.getCount()-1;
+        if (pos < 0) {
+            pos = qStore.getCount() - 1;
         }
         showQuestion();
         qno--;
-        if(qno <= 0)
-        {
+        if (qno <= 0) {
             qno = qStore.getCount();
         }
-        lblShowQuestionNo.setText("Question No : "+qno);
+        lblShowQuestionNo.setText("Question No : " + qno);
     }//GEN-LAST:event_btnPreviousActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
 
         String choosenAnswer = getUserAnswer();
-        if(choosenAnswer != null)
-        {
+        if (choosenAnswer != null) {
             QuestionPOJO ques = qStore.getQuestionByQno(qno);
             String correctAnswer = ques.getCorrectAnswer();
             AnswerPOJO ans = new AnswerPOJO(newExam.getExamID(), newExam.getLanguage(), qno, choosenAnswer, correctAnswer);
             AnswerPOJO attemped = ansStore.getAnswerByQno(qno);
-            if(attemped == null)
-            {
+            if (attemped == null) {
                 ansStore.addAnswer(ans);
-            }
-            else
-            {
+            } else {
                 String preAnswer = attemped.getChoosenAnswer();
-                if(preAnswer.equals(choosenAnswer))
-                {
+                if (preAnswer.equals(choosenAnswer)) {
                     int apos = ansStore.removeAnswer(attemped);
                     ansStore.setAnswerAt(apos, ans);
                 }
             }
         }
         pos++;
-        if(pos >= qStore.getCount())
-        {
+        if (pos >= qStore.getCount()) {
             pos = 0;
         }
         showQuestion();
         qno++;
-        if(qno > qStore.getCount())
-        {
+        if (qno > qStore.getCount()) {
             qno = 1;
         }
-        lblShowQuestionNo.setText("Question No : "+qno);
+        lblShowQuestionNo.setText("Question No : " + qno);
         showQuestion();
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -384,77 +380,75 @@ public class TakeTestFrame extends javax.swing.JFrame {
         int right = 0;
         int wrong = 0;
         StringBuilder sb = new StringBuilder();
-        for (QuestionPOJO ques: qStore.getAllQuestions()) {
+        for (QuestionPOJO ques : qStore.getAllQuestions()) {
             int qno = ques.getQno();
-            System.out.println("qno is : "+qno);
+            System.out.println("qno is : " + qno);
             AnswerPOJO ans = ansStore.getAnswerByQno(qno);
             System.out.println("ans is " + ans);
-            if(ans == null)
+            if (ans == null) {
                 continue;
+            }
             String attempedAnswer = ans.getChoosenAnswer();
             String correctAnswer = ans.getCorrectAnswer();
-            
-            if(attempedAnswer.equals(correctAnswer))
+
+            if (attempedAnswer.equals(correctAnswer)) {
                 right++;
-            else 
+            } else {
                 wrong++;
-            
-            try
-            {
-                PerformancePOJO performance = new PerformancePOJO();
-                performance.setUserId(UserProfilePOJO.getUserName());
-                performance.setExamId(ques.getExamID());
-                performance.setRight(right);
-                performance.setWrong(wrong);
-                performance.setUnattemped(qStore.getCount()-(right+wrong));
-                performance.setPercentage((double)right/qStore.getCount()*100);
-                performance.setLanguage(newExam.getLanguage());
-                PerformanceDAO.addPerformance(performance);
-                
-            }
-            catch(SQLException ex)
-            {
-                ex.printStackTrace();
             }
         }
-        sb.append("Right answer "+right);
-        sb.append("\nWrong Answer "+wrong);
-        sb.append("\nUnattemped "+(qStore.getCount()-(right+wrong)));
-        JOptionPane.showMessageDialog(this, sb.toString(),"Result",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            PerformancePOJO performance = new PerformancePOJO();
+            performance.setUserId(UserProfilePOJO.getUserName());
+            performance.setExamId(newExam.getExamID());
+            performance.setRight(right);
+            performance.setWrong(wrong);
+            performance.setUnattemped(qStore.getCount() - (right + wrong));
+            performance.setPercentage((double) right / qStore.getCount() * 100);
+            performance.setLanguage(newExam.getLanguage());
+            PerformanceDAO.addPerformance(performance);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        sb.append("Right answer " + right);
+        sb.append("\nWrong Answer " + wrong);
+        sb.append("\nUnattemped " + (qStore.getCount() - (right + wrong)));
+        JOptionPane.showMessageDialog(this, sb.toString(), "Result", JOptionPane.INFORMATION_MESSAGE);
+        
+        Frame frame = new StudentOptionFrame();
+        frame.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnDoneActionPerformed
 
-    
-    
     private void loadQuestions() {
-        try
-        {
+        try {
             ArrayList<QuestionPOJO> queList = QuestionDAO.getQuestionsByExamId(newExam.getExamID());
             for (QuestionPOJO question : queList) {
                 qStore.addQuestion(question);
             }
-        }
-        catch(SQLException ex)
-        {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    
-    private void showQuestion()
-    {
+
+    private void showQuestion() {
         QuestionPOJO question = qStore.getQuestion(pos);
         buttonGroup1.clearSelection();
-        lblShowQuestionNo.setText("Question No. "+question.getQno());
+        lblShowQuestionNo.setText("Question No. " + question.getQno());
         txtQuestion.setText(question.getQuestion());
         jcOption1.setText(question.getAnswer1());
         jcOption2.setText(question.getAnswer2());
         jcOption3.setText(question.getAnswer3());
         jcOption4.setText(question.getAnswer4());
         AnswerPOJO ans = ansStore.getAnswerByQno(qno);
-        if(ans == null)
+        if (ans == null) {
             return;
+        }
         String choosenAns = ans.getChoosenAnswer();
-        switch(choosenAns)
-        {
+        switch (choosenAns) {
             case "answer1":
                 jcOption1.setSelected(true);
                 break;
@@ -469,21 +463,21 @@ public class TakeTestFrame extends javax.swing.JFrame {
                 break;
         }
     }
-    
-    private String getUserAnswer()
-    {
-        if(jcOption1.isSelected())
+
+    private String getUserAnswer() {
+        if (jcOption1.isSelected()) {
             return "answer1";
-        else if(jcOption2.isSelected())
+        } else if (jcOption2.isSelected()) {
             return "answer2";
-        else if(jcOption3.isSelected())
+        } else if (jcOption3.isSelected()) {
             return "answer3";
-        else if(jcOption4.isSelected())
+        } else if (jcOption4.isSelected()) {
             return "answer4";
-        else
+        } else {
             return null;
+        }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -528,6 +522,7 @@ public class TakeTestFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrevious;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton jcOption1;

@@ -6,7 +6,7 @@
 package techQuizApp.GUI;
 
 import java.awt.Color;
-import java.awt.Frame;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import techQuizApp.POJO.UserProfilePOJO;
 
@@ -38,6 +38,7 @@ public class AdminOptionFrame extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         mypanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jrSetPaper = new javax.swing.JRadioButton();
@@ -53,6 +54,8 @@ public class AdminOptionFrame extends javax.swing.JFrame {
 
         mypanel.setBackground(new java.awt.Color(0, 0, 0));
         mypanel.setForeground(new java.awt.Color(102, 255, 102));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("H:\\HSEKAR\\JAVA_PROJECT_LECTURE_NOTES\\appimages\\onlineexam\\admin.png")); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -123,25 +126,30 @@ public class AdminOptionFrame extends javax.swing.JFrame {
         mypanelLayout.setHorizontalGroup(
             mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mypanelLayout.createSequentialGroup()
-                .addComponent(lblShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLogout))
-            .addGroup(mypanelLayout.createSequentialGroup()
                 .addGroup(mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mypanelLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mypanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addGap(45, 45, 45)
                         .addGroup(mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDoTask, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jrSetPaper)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jrEditPaper)
                                 .addComponent(jrRegisterStudent)
                                 .addComponent(jrViewScore))))
-                    .addGroup(mypanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mypanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnDoTask, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)))
+                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(mypanelLayout.createSequentialGroup()
+                .addComponent(lblShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLogout))
         );
         mypanelLayout.setVerticalGroup(
             mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,21 +157,24 @@ public class AdminOptionFrame extends javax.swing.JFrame {
                 .addGroup(mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblShowName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jrSetPaper)
-                .addGap(18, 18, 18)
-                .addComponent(jrEditPaper)
-                .addGap(18, 18, 18)
-                .addComponent(jrRegisterStudent)
-                .addGap(18, 18, 18)
-                .addComponent(jrViewScore)
-                .addGap(31, 31, 31)
+                .addGap(51, 51, 51)
+                .addGroup(mypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mypanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jrSetPaper)
+                        .addGap(26, 26, 26)
+                        .addComponent(jrEditPaper)
+                        .addGap(26, 26, 26)
+                        .addComponent(jrRegisterStudent)
+                        .addGap(26, 26, 26)
+                        .addComponent(jrViewScore))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnDoTask, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,7 +208,7 @@ public class AdminOptionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLogoutMouseClicked
 
     private void btnDoTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoTaskActionPerformed
-        Frame frame = null;
+        JFrame frame = null;
         if(jrSetPaper.isSelected())
         {
             frame = new SetPaperFrame();
@@ -261,6 +272,7 @@ public class AdminOptionFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDoTask;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton jrEditPaper;

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import techQuizApp.DBConnection.DBConnection;
 import techQuizApp.POJO.RegisterStudentPOJO;
 
@@ -22,10 +23,11 @@ public class RegisterStudentDAO {
     
     public static boolean registerStudent(RegisterStudentPOJO registerStudent) throws SQLException
     {
-        ps = CONN.prepareStatement("insert into users values (?,?,?)");
-        ps.setString(1, registerStudent.getUserID());
-        ps.setString(2, String.valueOf(registerStudent.getPassword()));
-        ps.setString(3, "Student");
+        ps = CONN.prepareStatement("insert into users values (?,?,?,?)");
+        ps.setString(1, getUserId());
+        ps.setString(2, registerStudent.getUserID());
+        ps.setString(3, String.valueOf(registerStudent.getPassword()));
+        ps.setString(4, "Student");
         ResultSet result = ps.executeQuery();
         return result.next();
     }
@@ -38,5 +40,15 @@ public class RegisterStudentDAO {
         ps.setString(3, String.valueOf(oldPassword));
         ResultSet result = ps.executeQuery();
         return result.next();
+    }
+    
+    public static String getUserId() throws SQLException
+    {
+        Connection conn = DBConnection.getConnection();
+        Statement ps = conn.createStatement();
+        ResultSet result = ps.executeQuery("select count(*) from users");
+        if(result.next())
+            return result.getString(1);
+        return "1";
     }
 }

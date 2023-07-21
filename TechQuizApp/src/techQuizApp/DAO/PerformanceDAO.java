@@ -25,12 +25,12 @@ public class PerformanceDAO {
     {
         PreparedStatement ps = CONN.prepareStatement("insert into performance values(?,?,?,?,?,?,?)");
         ps.setString(1, performance.getUserId());
-        ps.setString(2, performance.getExamId());
-        ps.setInt(3, performance.getRight());
-        ps.setInt(4, performance.getWrong());
-        ps.setInt(5, performance.getUnattemped());
-        ps.setDouble(6, performance.getPercentage());
-        ps.setString(7, performance.getLanguage());
+        ps.setInt(2, performance.getRight());
+        ps.setInt(3, performance.getWrong());
+        ps.setInt(4, performance.getUnattemped());
+        ps.setDouble(5, performance.getPercentage());
+        ps.setString(6, performance.getLanguage());
+        ps.setString(7, performance.getExamId());
         ps.executeQuery();
     }
     public static ArrayList<PerformancePOJO> getAllData() throws SQLException
@@ -42,12 +42,12 @@ public class PerformanceDAO {
         {
             PerformancePOJO performance = new PerformancePOJO();
             performance.setUserId(rs.getString(1));
-            performance.setExamId(rs.getString(2));
-            performance.setRight(rs.getInt(3));
-            performance.setWrong(rs.getInt(4));
-            performance.setUnattemped(rs.getInt(5));
-            performance.setPercentage(rs.getDouble(6));
-            performance.setLanguage(rs.getString(7));
+            performance.setRight(rs.getInt(2));
+            performance.setWrong(rs.getInt(3));
+            performance.setUnattemped(rs.getInt(4));
+            performance.setPercentage(rs.getDouble(5));
+            performance.setLanguage(rs.getString(6));
+            performance.setExamId(rs.getString(7));
             performanceList.add(performance);
         }
         return performanceList;

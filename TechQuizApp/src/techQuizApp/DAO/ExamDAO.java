@@ -67,7 +67,7 @@ public class ExamDAO {
     }
     public static ArrayList<String> getExamIdBySubject(String userID,String subject) throws SQLException
     {
-        String query = "Select examid from exam where language = ? minus select examid from performance where examid = ?";
+        String query = "Select examid from exam where language = ? minus select examid from performance where userid = ?";
         PreparedStatement ps = CONN.prepareStatement(query);
         ps.setString(1, subject);
         ps.setString(2, userID);
